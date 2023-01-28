@@ -5,13 +5,25 @@ let heightOf =canvas.height
 console.log(heightOf)
 console.log(widthOf)
 let playerGround =new Image()
-playerGround.src ="./sprit image.png"
+playerGround.src ="./shadow dog sprite sheet.png"
+let spritWidth =575
+let spritHeight =523
+let x =6
+let y =1
+let gameFrame =0
+let stagrrer =30
 
-function some(){
+
+function someSprit(){
     areaOf.clearRect(0,0,widthOf,heightOf)
-    areaOf.fillRect(0,0,0,0)
-    
+   areaOf.drawImage(playerGround,x*spritWidth ,y*spritHeight ,spritWidth ,spritHeight,0,0,widthOf,heightOf)
+   if(gameFrame % stagrrer == 0){
+    if(x < 4) x++
+
+   }else x=0
+   gameFrame++
+    requestAnimationFrame(someSprit)
 }
-some()
+window.addEventListener("load",someSprit)
 
 
